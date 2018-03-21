@@ -13,8 +13,12 @@ You can read more about IDN attacks here: https://www.phish.ai/2018/03/13/idn-ho
 python is required
 
 ```bash
+# Show help
 python3 main.py --help
-python3 main.py phish .ai # This will print all the permutation of phish.ai, you can redirect the output to a file as well.
+ # This will print all the permutation of phish.ai, you can redirect the output to a file as well.
+python3 main.py phish .ai
+# This will print all the permutation of phish.ai in punycode (some admin dashboard support only this format of domains).
+python3 main.py phish .ai --punycode
 ```
 
 ## Contribution
