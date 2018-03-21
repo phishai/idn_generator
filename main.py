@@ -7,11 +7,12 @@ def permutate(domain, tld, punycode=False):
     for i,char in enumerate(domain):
         prefix = domain[:i]
         suffix = domain[i+1:]
-        for perchar in latin_script[char]:
-            new_domain_name = prefix + perchar + suffix + tld
-            if punycode:
-                new_domain_name = str(new_domain_name.encode('idna'), 'utf-8')
-            res.append(new_domain_name)
+        if char in latin_script:
+            for perchar in latin_script[char]:
+                new_domain_name = prefix + perchar + suffix + tld
+                if punycode:
+                    new_domain_name = str(new_domain_name.encode('idna'), 'utf-8')
+                res.append(new_domain_name)
 
     return ','.join(res)
 
